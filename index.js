@@ -1,7 +1,7 @@
 const { response } = require("express");
 const express = require("express");
 const app = express();
-
+const cors = require("cors");
 let notes = [
 	{
 		id: 1,
@@ -24,7 +24,7 @@ let notes = [
 ];
 
 app.use(express.json());
-
+app.use(cors());
 const generateId = () => {
 	const maxId = notes.length > 0 ? Math.max(...notes.map((n) => n.id)) : 0;
 	return maxId + 1;
@@ -73,11 +73,11 @@ app.get("/api/notes/:id", (req, res) => {
 
 app.delete("/api/notes/:id", (req, res) => {
 	const id = Number(req.params.id);
-	const note = notes.filter((note) => note.id !== id);
+	notes = notes.filter((note) => note.id !== id);
 	res.status(204).end();
 });
 
-const PORT = 3002;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
 	console.log(`Server running on ${PORT}`);
 });
