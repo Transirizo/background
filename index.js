@@ -2,6 +2,7 @@ const { response } = require("express");
 const express = require("express");
 const app = express();
 const cors = require("cors");
+
 let notes = [
 	{
 		id: 1,
@@ -21,10 +22,16 @@ let notes = [
 		date: "2019-05-30T19:20:14.298Z",
 		important: true,
 	},
+	{
+		id: 4,
+		content: "This is in heroku",
+		important: true,
+	},
 ];
 
 app.use(express.json());
 app.use(cors());
+app.use(express.static("build"));
 const generateId = () => {
 	const maxId = notes.length > 0 ? Math.max(...notes.map((n) => n.id)) : 0;
 	return maxId + 1;
