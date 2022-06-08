@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const Note = require("./note");
+const Note = require("./models/note");
 
 let notes = [
 	{
@@ -54,7 +54,7 @@ app.post("/api/notes", (req, res) => {
 	note.save().then((savedNote) => {
 		res.json(savedNote);
 	});
-	console.log("have saved");
+	// console.log("have saved");
 });
 
 app.get("/", (req, res) => {
@@ -81,5 +81,5 @@ app.delete("/api/notes/:id", (req, res) => {
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
-	console.log(`Server running on ${PORT}`);
+	// console.log(`Server running on ${PORT}`);
 });
