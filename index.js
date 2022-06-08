@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const cors = require("cors");
-import Note from "./models/note";
+const Note = require("./models/note");
 
 let notes = [
 	{
