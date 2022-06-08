@@ -3,8 +3,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
-const Note = require("./models/note");
-const { response } = require("express");
+const Note = require("./models/note.js");
 
 const url = process.env.MONGODB_URL;
 mongoose.connect(url);
