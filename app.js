@@ -1,5 +1,6 @@
 const notesRouter = require("./controllers/notes");
 const express = require("express");
+require("express-async-errors");
 const cors = require("cors");
 const app = express();
 const mongoose = require("mongoose");

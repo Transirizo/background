@@ -2,6 +2,6 @@ POST http://localhost:3001/api/notes
 Content-Type: application/json
 
 {
-    "content": "testtsadf221ds",
+    "content": "HTML is easy 2",
     "important": true
 }
