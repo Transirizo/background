@@ -16,6 +16,10 @@ notesRouter.get("/:id", async (req, res) => {
 	// 		}
 	// 	})
 	// 	.catch((error) => next(error));
+	if (req.params.id.length !== 24) {
+		return res.status(400).end();
+	}
+
 	const findNote = await Note.findById(req.params.id);
 	if (findNote) {
 		res.json(findNote);
